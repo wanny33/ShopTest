@@ -5,7 +5,7 @@ import com.wanny.shoptest.model.Product;
 
 public interface ProductDao {
 
-    Product getProductById(Integer productId);
+    Product getProductById(String productId);
 
-    Integer createProduct(ProductRequest productRequest);
+    String createProduct(ProductRequest productRequest);
 }

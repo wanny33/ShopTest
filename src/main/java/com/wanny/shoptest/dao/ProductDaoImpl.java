@@ -22,7 +22,7 @@ public class ProductDaoImpl implements ProductDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public Product getProductById(Integer productId) {
+    public Product getProductById(String productId) {
         String sql = "SELECT Product_ID, Product_Name, Price, Quantity" +
                      "FROM product WHERE Product_ID = :productId";
 
@@ -39,7 +39,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Integer createProduct(ProductRequest productRequest) {
+    public String createProduct(ProductRequest productRequest) {
         String sql = "INSERT INTO Product(Product_Id, Product_Name, Price, Quantity)" +
                      "VALUES (:productId, :productName, :price, :quantity)";
 
@@ -53,7 +53,7 @@ public class ProductDaoImpl implements ProductDao {
 
         namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(map), keyHolder);
 
-        int productId = keyHolder.getKey().intValue();
+        String productId = new String(keyHolder.getKey().toString());
 
         return productId;
     }

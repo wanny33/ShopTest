@@ -5,8 +5,8 @@ import com.wanny.shoptest.model.Product;
 
 public interface ProductService {
 
-    Product getProductById(Integer productId);
+    Product getProductById(String productId);
 
-    Integer creatProduct(ProductRequest productRequest);
+    String createProduct(ProductRequest productRequest);
 
 }

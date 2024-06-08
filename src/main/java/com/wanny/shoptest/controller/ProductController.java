@@ -17,7 +17,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products/{productId}")
-    public ResponseEntity<Product> getProduct(@PathVariable Integer productId){
+    public ResponseEntity<Product> getProduct(@PathVariable String productId){
         Product product = productService.getProductById(productId);
 
         if (product != null){
@@ -29,7 +29,7 @@ public class ProductController {
 
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductRequest productRequest){
-        Integer productId = productService.creatProduct(productRequest);
+        String productId = productService.createProduct(productRequest);
 
         Product product = productService.getProductById(productId);
 

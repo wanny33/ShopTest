@@ -14,12 +14,12 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public Product getProductById(Integer productId) {
+    public Product getProductById(String productId) {
         return productDao.getProductById(productId);
     }
 
     @Override
-    public Integer creatProduct(ProductRequest productRequest) {
+    public String createProduct(ProductRequest productRequest) {
         return productDao.createProduct(productRequest);
     }
 }
